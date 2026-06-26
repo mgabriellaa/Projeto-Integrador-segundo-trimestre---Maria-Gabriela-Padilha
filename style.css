@@ -1,4 +1,4 @@
-/* Configurações Globais e Reset */
+/* Configuracoes Globais e Reset */
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@ body {
     color: #333;
 }
 
-/* Estrutura do Cabeçalho */
+/* Estrutura do Cabecalho */
 .main-header {
     background-color: #1a202c; /* Grafite escuro profissional */
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -83,4 +83,10 @@ body {
         width: 100%;
         display: block;
     }
+}
+.banner{
+    width: 100%;
+}
+.banner img{
+    width: 100%;
 }
