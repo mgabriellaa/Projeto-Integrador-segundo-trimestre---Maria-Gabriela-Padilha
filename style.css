@@ -90,3 +90,175 @@ body {
 .banner img{
     width: 100%;
 }
+
+/* Estilização da Seção */
+.robotica-section {
+    background-color: #f8f9fa;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.container {
+    max-width: 1100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+/* Coluna de Texto */
+.tag {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.conteudo-texto h2 {
+    font-size: 2.5rem;
+    color: #212529;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.conteudo-texto h2 span {
+    color: #007bff;
+}
+
+.conteudo-texto p {
+    color: #495057;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.detalhes-aula {
+    background-color: #fff;
+    padding: 20px;
+    border-left: 5px solid #007bff;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.item-detalhe {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: #495057;
+}
+
+.item-detalhe:last-child {
+    margin-bottom: 0;
+}
+
+/* Coluna Visual - O Disco de Newton com CSS puro */
+.conteudo-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Simulação da estrutura de robótica atrás do disco */
+.Suporte-motor {
+    width: 20px;
+    height: 150px;
+    background-color: #6c757d;
+    position: absolute;
+    bottom: 20px;
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.disco-newton {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    z-index: 2;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+    background: conic-gradient(
+        #ff0000 0deg 51.4deg,
+        #ff7f00 51.4deg 102.8deg,
+        #ffff00 102.8deg 154.2deg,
+        #00ff00 154.2deg 205.6deg,
+        #0000ff 205.6deg 257deg,
+        #4b0082 257deg 308.4deg,
+        #9400d3 308.4deg 360deg
+    );
+}
+
+/* Centro do disco (eixo do motor) */
+.centro-disco {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    height: 25px;
+    background-color: #343a40;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+/* Efeito de Rotação e Ilusão de Ótica (Mistura para o Branco) */
+@keyframes girarEMisturar {
+    0% {
+        transform: rotate(0deg);
+        filter: blur(0px);
+    }
+    30% {
+        filter: blur(2px);
+    }
+    60% {
+        /* O segredo do efeito: o blur alto + brilho simula a mistura das cores virando branco */
+        filter: blur(15px) brightness(1.4); 
+    }
+    100% {
+        transform: rotate(3600deg);
+        filter: blur(20px) brightness(1.6);
+        background: #fdfdfd; /* Força o aspecto esbranquiçado no pico da rotação */
+    }
+}
+
+/* Quando passa o mouse, o motor "liga" */
+.conteudo-visual:hover .disco-newton {
+    animation: girarEMisturar 1.5s infinite linear;
+}
+
+.legenda-interacao {
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: #6c757d;
+    font-style: italic;
+    z-index: 2;
+}
+
+/* Responsividade para celulares */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .conteudo-texto {
+        text-align: center;
+    }
+    
+    .detalhes-aula {
+        text-align: left;
+    }
+}
